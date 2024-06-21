@@ -40,17 +40,3 @@ resource "aws_instance" "app_server_2" {
     device_index         = 0
   }
 }
-
-resource "aws_network_interface" "interface3" {
-  subnet_id = "subnet-07e2b8a532f437c58"
-}
-
-resource "aws_instance" "app_server_3" {
-  ami           = "ami-04c913012f8977029"
-  instance_type = "t2.micro"
-
-  network_interface {
-    network_interface_id = aws_network_interface.interface3.id
-    device_index         = 0
-  }
-}
